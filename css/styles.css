@@ -1,0 +1,37 @@
+#nav{
+    padding-left: 60px;
+    padding-right: 130px;
+    background-color: #ff2953;
+}
+#addTaller{
+    margin-top: 18px;
+    margin-left: 10px;
+}
+#dropdown{
+    margin-right: 10px;
+    
+}
+
+#ModalTaller{
+    background-color: transparent;
+    width: 500px;  
+    height: 1000px;
+}
+
+
+/* color de botones */
+.cancelar{
+    background-color: #8b8787;
+}
+.crear{
+    background-color: #04bd1a;
+}
+.editar{
+    background-color: #f0b906;
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #b3b3b2;
+}
+.col-4{
+    padding: 100px;
+}

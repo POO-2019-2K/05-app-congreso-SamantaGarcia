@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+  />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+          
+    <title>TALLERES</title>
+</head>
+
+<body>
+    
+        <div class="row">
+            <nav>
+                    <div class="nav-wrapper" id="nav">
+                      <a href="#" class="brand-logo">TALLERES DEL CONGRESO</a>
+                      <a id="addTaller" class="btn-floating btn-small waves-effect waves-light right crear" data-toggle="modal" data-target="#ModalTaller"><i class="material-icons">add</i></a>                          
+
+                      <div class="dropdown right" id="dropdown">
+                            <a class="btn btn dropdown-toggle editar" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Lista de talleres
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" id="itemTaller" href="#"></a>
+                            </div>                            
+                          </div>
+                    </div>
+                    
+                  </nav>
+        </div>
+
+        <!-- contenido -->
+        <<!-- Sección del taller -->
+        <div class="container-fluid" id="SeccionTaller" aria-hidden="true">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="jumbotron">
+                                <h1 id="STnombre">Nombre Taller</h1>
+                                <p id="STfechai">Fecha de inicio</p> 
+                                <p id="STfechat">Fecha de término</p>
+                              </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8"> 
+                            <table id="tablePersonas">
+                            <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>E-mail</th>
+                                  <th>Fecha de nacimiento</th>
+                                  <th></th>
+                                  <th></th>
+                              </tr>
+                            </thead>
+                    
+                            <tbody>
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="col-4">
+                        <center><div>
+                            <label for="">Duración del taller</label><br>
+                            <input type="text border" style="height:90px; width:100px;" readonly>
+                        </div></center>
+                        <br><br><br>
+                        <center><div class="row">
+                                <div class="col-6">
+                                    <label for="">Personas inscritas</label><br>
+                                    <input type="text border" style="height:90px; width:100px;" readonly>
+                            </div> 
+                            <div class="col-6">
+                                    <label for="">Lugares disponibles</label><br>
+                            <input type="text border" style="height:90px; width:100px;" readonly>
+                                </div>
+                        </div></center>
+                    </div>
+                </div>
+    
+            </div>
+        
+        
+
+
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
+
+
+                    <!--FORM TALLER Modal -->
+                    <div class="modal" id="ModalTaller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Crear taller</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                        <form class="needs-validation" novalidate>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                        <div class="form-group">
+                                                                <label for="exampleInputEmail1">Nombre</label>
+                                                                <input type="text" class="form-control" id="tallerNombre">
+                                                                <small class="form-text text-muted">Escribe el nombre de tu taller.</small>   
+                                                                
+                                                                <div class="valid-feedback">Correcto!</div>
+                                                                <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                              </div>
+                                                </div>
+                                                
+                                            </div>
+                                                
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                                <label for="exampleInputPassword1">Fecha de inicio</label>
+                                                                <input type="date" class="form-control" id="tallerFinicio">
+                                                                <small class="form-text text-muted">Escribe el día en que inicia tu taller.</small>
+
+                                                                <div class="valid-feedback">Correcto!</div>
+                                                                 <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                                <label for="exampleInputPassword1">Fecha de término</label>
+                                                                <input type="date" class="form-control" id="tallerFtermino">
+                                                                <small class="form-text text-muted">Escribe el día en que termina tu taller.</small>
+
+                                                                <div class="valid-feedback">Correcto!</div>
+                                                                <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="form-group">
+                                                        <div class="row">
+                                                                <div class="col-6">
+                                                                        <label for="exampleInputPassword1">Duración</label>
+                                                                        <input type="time" class="form-control" id="tallerDuracion">
+                                                                        <small class="form-text text-muted">Escribe la duración de tu taller en horas.</small>
+
+                                                                        <div class="valid-feedback">Correcto!</div>
+                                                                        <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                        <label for="exampleInputPassword1">Límite de personas</label>
+                                                                        <input type="number" class="form-control" id="tallerLimit">
+                                                                        <small class="form-text text-muted">Cantidad de personas permitidas en el taller.</small>
+                                                                        <div class="valid-feedback">Correcto!</div>
+                                                                        <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                    </div>
+                                              </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn cancelar" data-dismiss="modal">Cancelar</button> &nbsp;&nbsp;
+                                  <button type="button" class="btn crear">Crear</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
