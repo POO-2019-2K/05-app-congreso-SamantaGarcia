@@ -7,11 +7,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
   />
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <link rel="stylesheet" href="../css/styles.css">
           
@@ -21,23 +16,23 @@
 <body>
     
         <div class="row">
-            <nav>
-                    <div class="nav-wrapper" id="nav">
-                      <a href="#" class="brand-logo">TALLERES DEL CONGRESO</a>
-                      <a id="addTaller" class="btn-floating btn-small waves-effect waves-light right crear" data-toggle="modal" data-target="#ModalTaller"><i class="material-icons">add</i></a>                          
+                  <!-- As a heading -->
+<nav class="navbar navbar-light " id="nav">
+        <span class="navbar-brand mb-0 h1" style="color:white;">TALLERES DEL CONGRESO</span>
 
-                      <div class="dropdown right" id="dropdown">
-                            <a class="btn btn dropdown-toggle editar" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Lista de talleres
-                            </a>
-                          
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" id="itemTaller" href="#"></a>
-                            </div>                            
-                          </div>
-                    </div>
-                    
-                  </nav>
+                          <div class="btn-group" role="group" aria-label="Button group with nested dropdown" id="dropdown">
+                                <button type="button" id="addTaller" class="btn btn-success add" data-toggle="modal" data-target="#ModalTaller">Agregar</button>
+                              
+                                <div class="btn-group " role="group">
+                                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle editar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Lista de talleres
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" id="itemTaller" href="#"></a>
+                                  </div>
+                                </div>
+                              </div>
+      </nav>
         </div>
 
         <!-- contenido -->
@@ -60,7 +55,8 @@
 
                 <div class="row">
                     <div class="col-8"> 
-                            <table id="tablaPersonas">
+                            <h5><strong>Personas registradas</strong> <button type="button" id="addPersona" class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalPersonas">Agregar</button></h5>                           
+                            <table class="table" id="tablaPersonas">
                             <thead>
                               <tr>
                                   <th>Nombre</th>
@@ -79,18 +75,16 @@
                         <center><div>
                             <label for="">Duración del taller</label><br>
                             <input type="text border" style="height:90px; width:100px;" id="STduracion" readonly>
-                        </div></center>
-                        <br><br><br>
-                        <center><div class="row">
-                                <div class="col-6">
+                        </div>
+                        <br>
+                                                      
                                     <label for="">Personas inscritas</label><br>
-                                    <input type="text border" style="height:90px; width:100px;" readonly>
-                            </div> 
-                            <div class="col-6">
+                                    <input type="text border" style="height:90px; width:100px;" readonly> <br> <br>
+                            
                                     <label for="">Lugares disponibles</label><br>
                             <input type="text border" style="height:90px; width:100px;" readonly>
-                                </div>
-                        </div></center>
+                                
+                       </center>
                     </div>
                 </div>
     
@@ -111,7 +105,7 @@
 
 
                     <!--FORM TALLER Modal -->
-                    <div class="modal" id="ModalTaller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade modalito" id="ModalTaller" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -186,3 +180,63 @@
                               </div>
                             </div>
                           </div>
+
+
+                          <!--FORM PERSONAS Modal -->
+                          <div class="modal fade modalito" id="ModalPersonas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalCenterTitle">Agregar participante</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <form class="needs-validation" id="form" novalidate>
+                                                    <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                                <div class="form-group">
+                                                                        <label for="exampleInputEmail1">Nombre completo</label>
+                                                                        <input type="text" class="form-control" id="personaNombre" required>
+                                                                        <small class="form-text text-muted">Escribe el nombre del participante.</small>   
+                                                                        
+                                                                        <div class="valid-feedback">Correcto!</div>
+                                                                        <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                                      </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                        <label for="exampleInputPassword1">E-mail</label>
+                                                                        <input type="email" class="form-control" id="personaEmail" required>
+                                                                        <small class="form-text text-muted">Escribe su correo electrónico.</small>
+        
+                                                                        <div class="valid-feedback">Correcto!</div>
+                                                                         <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                        <label for="exampleInputPassword1">Fecha de nacimiento</label>
+                                                                        <input type="date" class="form-control" id="personaFnacimiento" required>
+                                                                        <small class="form-text text-muted">Escribe su fecha de nacimiento.</small>
+        
+                                                                        <div class="valid-feedback">Correcto!</div>
+                                                                        <div class="invalid-feedback">Este campo es obligatorio</div>
+                                                                </div>
+                                                            </div>
+                                                          
+                                                        </div>
+                                                        
+                                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary cancelar" data-dismiss="modal">Cancelar</button> &nbsp;&nbsp;
+                                      <button type="button" class="btn btn-primary crear">Agregar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>

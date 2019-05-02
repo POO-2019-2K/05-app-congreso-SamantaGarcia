@@ -1,22 +1,22 @@
+.h1{
+    padding-bottom: 20px;
+}
 #nav{
     padding-left: 60px;
     padding-right: 130px;
     background-color: #ff2953;
+    width: 100%;
 }
-#addTaller{
-    margin-top: 18px;
-    margin-left: 10px;
+.add{
+    
+    color: white;
 }
 #dropdown{
     margin-right: 10px;
     
 }
 
-#ModalTaller{
-    background-color: transparent;
-    width: 500px;  
-    height: 1000px;
-}
+
 
 
 /* color de botones */

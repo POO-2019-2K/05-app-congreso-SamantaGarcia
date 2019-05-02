@@ -1,13 +1,11 @@
 import Taller from "./taller.js";
 
 export default class Talleres{
-    constructor(seccionTaller1,seccionTaller2,tablaPersonas, dropdown){
+    constructor(seccionTaller1,seccionTaller2,dropdown){
         this._seccionTaller1 = seccionTaller1;
         this._seccionTaller2 = seccionTaller2;
-        this._tablaPersonas = tablaPersonas;
         this._dropdown = dropdown;
         this._talleres = [];
-        this._personas = [];
 
         this._initTalleres();
     }
@@ -24,7 +22,6 @@ export default class Talleres{
     seccionTaller1(taller){        
         let itemLista = document.querySelector('#itemTaller');
         itemLista.innerHTML = taller.tallerNombre;
-
         let nombreTaller = document.querySelector('#STnombre');
         nombreTaller.innerHTML = taller.tallerNombre;
         let tallerFinicio = document.querySelector('#STfechai');
