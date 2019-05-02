@@ -8,6 +8,7 @@ class Main {
         document.querySelector("#btnCrear").addEventListener("click", () => {
             let form = document.querySelector("#form");
 
+            if (form.checkValidity() === true) {
             let tallerNombre = document.querySelector("#tallerNombre").value;
             let tallerFinicio = document.querySelector("#tallerFinicio").value;
             let tallerFtermino = document.querySelector("#tallerFtermino").value;
@@ -23,6 +24,9 @@ class Main {
 
             let taller = new Taller(objTaller);
             lista.seccionTaller1(taller);
+        }
+
+        form.classList.add("was-validated");
         });
     }
 }
