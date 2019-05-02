@@ -34,7 +34,7 @@ export default class Taller{
         return Finicio;
       }
 
-      getFterminoAsString() {
+    getFterminoAsString() {
         let Ftermino =
           this._tallerFtermino.getDate() +
           "/" +
@@ -43,6 +43,17 @@ export default class Taller{
           this._tallerFtermino.getFullYear();
     
         return Ftermino;
+      }
+
+      getDuracionAsString(){
+          let duracion =
+          this._tallerDuracion.getHours() +
+          ":" +
+          this._tallerDuracion.getMinutes() +
+          ":" +
+          this._tallerDuracion.getSeconds();
+
+          return duracion;
       }
 
 }

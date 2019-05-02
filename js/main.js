@@ -9,12 +9,16 @@ class Main {
             let form = document.querySelector("#form");
 
             let tallerNombre = document.querySelector("#tallerNombre").value;
-            // let tallerFinicio = document.querySelector("#tallerFinicio").value;
-            // let tallerFtermino = document.querySelector("#tallerFtermino").value;
+            let tallerFinicio = document.querySelector("#tallerFinicio").value;
+            let tallerFtermino = document.querySelector("#tallerFtermino").value;
+            let tallerDuracion = document.querySelector("#tallerDuracion").value;
             
 
             let objTaller = {
-                tallerNombre: tallerNombre
+                tallerNombre : tallerNombre,
+                tallerFinicio : tallerFinicio,
+                tallerFtermino : tallerFtermino,
+                tallerDuracion : tallerDuracion
               };
 
             let taller = new Taller(objTaller);

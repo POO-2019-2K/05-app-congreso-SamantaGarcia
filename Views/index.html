@@ -47,9 +47,14 @@
                     <div class="col-12">
                         <div class="jumbotron" id="seccionTaller1">
                                 <h1 id="STnombre"></h1>
-                                <p id="STfechai">Fecha de inicio</p> 
-                                <p id="STfechat">Fecha de término</p>
-                              </div>
+                                <table>
+                                    <tr>
+                                        <td class="celda" style="width: 150px;"><p> <strong>Fecha de inicio:</strong></p> <p> <strong>Fecha de término:</strong></p></td>
+                                        <td class="celda" ><p id="STfechai">Fecha de inicio</p><p id="STfechat">Fecha de término</p></td>
+                                    </tr>
+                                </table>
+                                
+                        </div>
                     </div>
                 </div>
 
@@ -73,7 +78,7 @@
                     <div class="col-4" id="seccionTaller2">
                         <center><div>
                             <label for="">Duración del taller</label><br>
-                            <input type="text border" style="height:90px; width:100px;" readonly>
+                            <input type="text border" style="height:90px; width:100px;" id="STduracion" readonly>
                         </div></center>
                         <br><br><br>
                         <center><div class="row">

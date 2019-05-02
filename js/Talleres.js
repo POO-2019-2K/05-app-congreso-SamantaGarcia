@@ -25,12 +25,20 @@ export default class Talleres{
         let itemLista = document.querySelector('#itemTaller');
         itemLista.innerHTML = taller.tallerNombre;
 
-
         let nombreTaller = document.querySelector('#STnombre');
         nombreTaller.innerHTML = taller.tallerNombre;
+        let tallerFinicio = document.querySelector('#STfechai');
+        tallerFinicio.innerHTML = taller.getFinicioAsString();
+        let tallerFtermino = document.querySelector('#STfechat');
+        tallerFtermino.innerHTML = taller.getFterminoAsString();
+        let tallerDuracion = document.querySelector('#STduracion');
+        tallerDuracion.innerHTML = taller.getDuracionAsString();
 
         let objTaller = {
-            tallerNombre: taller.tallerNombre
+            tallerNombre : taller.tallerNombre,
+            tallerFinicio : taller.tallerFinicio,
+            tallerFtermino : taller.tallerFtermino,
+            tallerDuracion : taller.tallerDuracion
           };
       
           this._talleres.push(objTaller); 
