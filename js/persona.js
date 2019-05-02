@@ -1,10 +1,8 @@
-import Taller from "./taller";
-
 export default class Persona{
     constructor(persona){
         this._personaNombre = persona.personaNombre;
         this._personaEmail = persona.personaEmail;
-        this._personaFnacimiento = persona.personaFnacimiento;
+        this._personaFnacimiento = new Date(persona.personaFnacimiento);
     }
 
     get personaNombre(){
@@ -19,11 +17,11 @@ export default class Persona{
 
     getFAsString() {
         let F =
-          this._tallerFinicio.getDate() +
+          this._personaFnacimiento.getDate() +
           "/" +
-          this._tallerFinicio.getMonth() +
+          this._personaFnacimiento.getMonth() +
           "/" +
-          this._tallerFinicio.getFullYear();
+          this._personaFnacimiento.getFullYear();
     
         return F;
       }
