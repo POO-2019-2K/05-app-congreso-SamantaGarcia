@@ -1,25 +1,31 @@
 import Taller from "./taller.js";
 
 export default class Talleres{
-    constructor(seccionTaller1,seccionTaller2,dropdown){
+    constructor(seccionTaller1,seccionTaller2,tablaBtn){
         this._seccionTaller1 = seccionTaller1;
         this._seccionTaller2 = seccionTaller2;
-        this._dropdown = dropdown;
+        this._tablaBtn = tablaBtn;
         this._talleres = [];
 
         this._initTalleres();
     }
 
     _initTalleres(){
+        //localStorage.removeItem("talleres");
         let Ltalleres = JSON.parse(localStorage.getItem("talleres"));
+        console.log(Ltalleres);
         if (Ltalleres === null) {
-            return;           
+            return;                 
           }
 
-          this.seccionTaller1(new Taller(Ltalleres));
-          
+          Ltalleres.forEach((e, index) => { //Para probar localstorage sin esto
+            e.tallerFinicio = new Date(e.tallerFinicio);
+            this.seccionTaller1(new Taller(Ltalleres));
+
+          });
     }
-    seccionTaller1(taller){        
+    seccionTaller1(taller){   
+        
         let itemLista = document.querySelector('#itemTaller');
         itemLista.innerHTML = taller.tallerNombre;
         let nombreTaller = document.querySelector('#STnombre');
@@ -43,5 +49,7 @@ export default class Talleres{
           localStorage.setItem("talleres", JSON.stringify(this._talleres));
 
     }
+
+    
 
 }

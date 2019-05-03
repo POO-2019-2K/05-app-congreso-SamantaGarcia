@@ -6,10 +6,10 @@ import Personas from "./Personas.js";
 
 class Main {
     constructor() {
-        let lista = new Talleres(document.querySelector("#seccionTaller1"));
+        let lista = new Talleres(document.querySelector("#seccionTaller1"), document.querySelector("#seccionTaller1"));
 
         document.querySelector("#btnCrear").addEventListener("click", () => {
-            let form = document.querySelector("#form");
+            let form = document.querySelector("#form")
 
             if (form.checkValidity() === true) {
             let tallerNombre = document.querySelector("#tallerNombre").value;
@@ -51,6 +51,8 @@ class Main {
 
                 let persona = new Persona(objPersona);
                 agenda.tablaPersonas(persona);
+
+                document.getElementById('form2');
             }
             form2.classList.add("was-validated");
         });
