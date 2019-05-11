@@ -26,7 +26,7 @@ class Main {
               };
 
             let taller = new Taller(objTaller);
-            lista.seccionTaller1(taller);
+            lista.encontrarTaller(taller);
         }
 
         form.classList.add("was-validated");
@@ -42,15 +42,17 @@ class Main {
                 let personaNombre = document.querySelector("#personaNombre").value;
                 let personaEmail = document.querySelector("#personaEmail").value;
                 let personaFnacimiento = document.querySelector("#personaFnacimiento").value;
-                
+                let sDate = personaFnacimiento.split("-");
+
                 let objPersona = {
                     personaNombre : personaNombre,
                     personaEmail : personaEmail,
-                    personaFnacimiento : personaFnacimiento
+                    personaFnacimiento : new Date(sDate[0], sDate[1]-1, sDate[2])
                 };
+                console.log(objPersona);
 
                 let persona = new Persona(objPersona);
-                agenda.tablaPersonas(persona);
+                agenda.addPersona(persona);
 
                 document.getElementById('form2');
             }

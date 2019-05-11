@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <link rel="stylesheet" href="../css/styles.css">
           
@@ -21,14 +22,14 @@
         <span class="navbar-brand mb-0 h1" style="color:white;">TALLERES DEL CONGRESO</span>
 
                           <div class="btn-group" role="group" aria-label="Button group with nested dropdown" id="dropdown">
-                                <button type="button" id="addTaller" class="btn btn-success add" data-toggle="modal" data-target="#ModalTaller">Agregar</button>
+                                <button type="button" id="addTaller" class="btn btn-success add" data-toggle="modal" data-target="#ModalTaller"> <i class="fa fa-plus"></i></button>
                               
                                 <div class="btn-group " role="group">
                                   <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle editar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Lista de talleres
                                   </button>
-                                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a class="dropdown-item" id="itemTaller" href="#"></a>
+                                  <div id="drop-menu" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    
                                   </div>
                                 </div>
                               </div>
@@ -41,13 +42,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="jumbotron" id="seccionTaller1">
-                                <h1 id="STnombre">Nombre del Taller</h1>
-                                <table id="tablaBtn">
-                                  <tr>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
-                                </table>
+                                <h1 id="STnombre">Nombre del Taller</h1>&nbsp;&nbsp;
                                 <table>
                                     <tr>
                                         <td class="celda" style="width: 150px;"><p> <strong>Fecha de inicio:</strong></p> <p> <strong>Fecha de término:</strong></p></td>
@@ -61,7 +56,7 @@
 
                 <div class="row">
                     <div class="col-8"> 
-                            <h5><strong>Personas registradas</strong> <button type="button" id="addPersona" class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalPersonas">Agregar</button></h5>                           
+                            <h5><strong>Personas registradas</strong> <button type="button" id="addPersona" class="btn btn-outline-success"  data-toggle="modal" data-target="#ModalPersonas"> <i class="fa fa-user-plus"></i></button></h5>                           
                             <table class="table" id="tablaPersonas">
                             <thead>
                               <tr>
