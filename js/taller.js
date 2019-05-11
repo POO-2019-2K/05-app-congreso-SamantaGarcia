@@ -3,7 +3,7 @@ export default class Taller{
         this._tallerNombre = taller.tallerNombre;
         this._tallerFinicio = new Date(taller.tallerFinicio);
         this._tallerFtermino = new Date(taller.tallerFtermino);
-        this._tallerDuracion = new Date(taller.tallerDuracion);
+        this._tallerDuracion = taller.tallerDuracion;
         this._tallerLimit - taller.tallerLimit;
     }
 

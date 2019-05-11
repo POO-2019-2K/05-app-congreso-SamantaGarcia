@@ -16,13 +16,13 @@ class Main {
             let tallerFinicio = document.querySelector("#tallerFinicio").value;
             let tallerFtermino = document.querySelector("#tallerFtermino").value;
             let tallerDuracion = document.querySelector("#tallerDuracion").value;
-            
+            let sHour = tallerDuracion.split(":");
 
             let objTaller = {
                 tallerNombre : tallerNombre,
                 tallerFinicio : tallerFinicio,
                 tallerFtermino : tallerFtermino,
-                tallerDuracion : tallerDuracion
+                tallerDuracion : new Date(sHour[3], sHour[4], sHour[5])
               };
 
             let taller = new Taller(objTaller);

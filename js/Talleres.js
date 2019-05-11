@@ -61,7 +61,7 @@ export default class Talleres{
         let tallerFtermino = document.querySelector('#STfechat');
         tallerFtermino.innerHTML = taller.getFterminoAsString();
         let tallerDuracion = document.querySelector('#STduracion');
-        tallerDuracion.innerHTML = taller.getDuracionAsString();        
+        tallerDuracion.innerHTML = taller.tallerDuracion;        
 
         let objTaller = {
             tallerNombre : taller.tallerNombre,
@@ -97,7 +97,7 @@ export default class Talleres{
         let tallerFtermino = document.querySelector('#STfechat');
         tallerFtermino.innerHTML = taller.getFterminoAsString();
         let tallerDuracion = document.querySelector('#STduracion');
-        tallerDuracion.innerHTML = taller.getDuracionAsString();        
+        tallerDuracion.innerHTML = taller.tallerDuracion;        
 
         //Crear botones      
 
@@ -108,6 +108,12 @@ export default class Talleres{
         btnE.appendChild(iconE);
         btnE.className = "btn btn-outline-danger ";
         btnE.addEventListener("click", () => { 
+          this._talleres.splice(position2, 1);
+          localStorage.setItem("talleres", JSON.stringify(this._talleres));
+          console.log(this._talleres);
+          location.reload();
+          return;
+
       }); 
       nombreTaller.appendChild(btnE);  
     }

@@ -50,9 +50,7 @@ export default class Personas{
 
         this._personas.push(objPersona);
         console.log(this._personas);
-        localStorage.setItem("personas", JSON.stringify(this._personas));
-
-        
+        localStorage.setItem("personas", JSON.stringify(this._personas));    
 
     }
 
@@ -118,8 +116,7 @@ export default class Personas{
 
     _deleteRow(row, persona){
       
-        localStorage.removeItem(persona);
-        console.log(persona); 
+        this._personas.splice(persona, 1);
         row.innerHTML = ""; 
         localStorage.setItem("personas", JSON.stringify(this._personas));
         console.log(this._personas);     
