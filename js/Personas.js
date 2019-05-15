@@ -44,7 +44,7 @@ export default class Personas{
         this._addButtons(row, persona);
       }
        
-        console.log(persona.id, tallerId);
+        //console.log(persona.id, tallerId);
         let objPersona = {
             id : persona.id,
             personaNombre : persona.personaNombre,
@@ -58,7 +58,7 @@ export default class Personas{
         this._personas.push(objPersona);
         //console.log(this._personas);
         localStorage.setItem("personas", JSON.stringify(this._personas));    
-
+       
     }
 
     _findP(personaEmail){
@@ -126,7 +126,8 @@ export default class Personas{
         this._personas.splice(persona, 1);
         row.innerHTML = ""; 
         localStorage.setItem("personas", JSON.stringify(this._personas));
-       // console.log(this._personas);     
+       // console.log(this._personas);  
+       
         return;          
     }
 
