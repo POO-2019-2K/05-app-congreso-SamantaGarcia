@@ -16,14 +16,15 @@ class Main {
             let tallerFinicio = document.querySelector("#tallerFinicio").value;
             let tallerFtermino = document.querySelector("#tallerFtermino").value;
             let tallerDuracion = document.querySelector("#tallerDuracion").value;
-            let sHour = tallerDuracion.split(":");
+            //let sHour = tallerDuracion.split("::");
+            //console.log(sHour[0]);
             let tallerLimite = Number(document.querySelector("#tallerLimite").value);
 
             let objTaller = {
                 tallerNombre : tallerNombre,
                 tallerFinicio : tallerFinicio,
                 tallerFtermino : tallerFtermino,
-                tallerDuracion : new Date(sHour[3], sHour[4], sHour[5]),
+                tallerDuracion : tallerDuracion,
                 tallerLimite : tallerLimite
               };
 

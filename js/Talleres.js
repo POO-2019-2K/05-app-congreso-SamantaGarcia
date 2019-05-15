@@ -91,6 +91,8 @@ export default class Talleres{
     _mostrarTaller(taller, objTaller){     
 
       localStorage.setItem("current", taller.tallerNombre);
+      localStorage.setItem("limite", taller.tallerLimite);
+
 
       console.log(localStorage.getItem("current"));
       let nombreTaller = document.querySelector('#STnombre');
@@ -138,8 +140,8 @@ export default class Talleres{
           }if(e.id != localStorage.getItem("current")){      
             Swal.fire({
               type: "success",
-              title: "Error",
-              text: "eliminado" 
+              title: "Eliminado",
+              text: "eliminación exitosa" 
             });
             this._talleres.splice(position, 1);
            localStorage.setItem("talleres", JSON.stringify(this._talleres));

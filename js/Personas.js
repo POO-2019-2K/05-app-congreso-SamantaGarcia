@@ -3,14 +3,18 @@ import Persona from "./persona.js";
 export default class Personas{
     constructor(tablaPersonas){
         this._tablaPersonas = tablaPersonas;
-
         this.initPersonas();
+        
     }
 
     initPersonas(){
       this._tablaPersonas.innerHTML = "";
       this._personas = [];
       this._totalPersonas = 0;
+      this._inscritos = 0;
+      let tallerL = localStorage.getItem("limite");
+      this._lugaresDisponibles = tallerL;
+      //console.log("tallerLimite", this._lugaresDisponibles);
         //localStorage.removeItem("personas");
         let Lpersonas = JSON.parse(localStorage.getItem("personas"));
         if(Lpersonas === null){
@@ -27,8 +31,32 @@ export default class Personas{
         
     }
 
+    _contarInscritos(tallerId){
+      let encontrar = -1; //solo lo encuentra desde el 0 en adelante. Por eso se inicializa como -1
+        this._personas.forEach((e, index) => {
+          if (e.id === tallerId) {
+            encontrar = index;
+            console.log(e);   
+            this._inscritos ++;
+            this._lugaresDisponibles --;
+            let totalp = document.querySelector("#totalp");
+            totalp.innerHTML = this._inscritos;
+            let disponibles = document.querySelector("#disponibles");
+            disponibles.innerHTML = this._lugaresDisponibles;
+            return;
+          }
+        });
+      
+      //console.log("inscritos primero:", this._inscritos);
+      this._inscritos = "";
+      this._lugaresDisponibles = "";
+      //console.log(totalp);
+      console.log(this._lugaresDisponibles);
+    }
+
     _tablaPersonass(persona){
       let tallerId = localStorage.getItem("current");
+      let tallerL = localStorage.getItem("limite");
       if (persona.id === tallerId) {
         let row = this._tablaPersonas.insertRow(-1);
         let cellNombre = row.insertCell(0);
@@ -43,6 +71,8 @@ export default class Personas{
 
         this._addButtons(row, persona);
       }
+      
+     
        
         //console.log(persona.id, tallerId);
         let objPersona = {
@@ -58,7 +88,8 @@ export default class Personas{
         this._personas.push(objPersona);
         //console.log(this._personas);
         localStorage.setItem("personas", JSON.stringify(this._personas));    
-       
+        this._contarInscritos(tallerId,persona)
+
     }
 
     _findP(personaEmail){
@@ -85,9 +116,10 @@ export default class Personas{
           return;
         }
         let tallerId = localStorage.getItem("current");
+
         persona.id = tallerId;
         this._tablaPersonass(persona);
-        console.log(this._personas);
+        //console.log(this._personas);
         localStorage.setItem("personas", JSON.stringify(this._personas));       
     
       }

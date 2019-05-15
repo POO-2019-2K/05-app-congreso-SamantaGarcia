@@ -46,14 +46,11 @@ export default class Taller{
       }
 
       getDuracionAsString(){
-          let duracion =
-          this._tallerDuracion.getHours() +
-          ":" +
-          this._tallerDuracion.getMinutes() +
-          ":" +
-          this._tallerDuracion.getSeconds();
+          console.log(this._tallerDuracion);
+          let hora =
+          ("0" + this._tallerDuracion.getHours()).slice(-2) + ':' + ("0" + this._tallerDuracion.getMinutes()).slice(-2);       
 
-          return duracion;
+        return hora;
       }
 
 }
