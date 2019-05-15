@@ -10,6 +10,11 @@ export default class Persona{
     get id(){
         return this._id;
     }
+
+    set id(tallerId){
+        this._id = tallerId;
+    }
+
     get personaNombre(){
         return this._personaNombre;
     }

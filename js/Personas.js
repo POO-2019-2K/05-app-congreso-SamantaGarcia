@@ -1,32 +1,36 @@
 import Persona from "./persona.js";
-import Talleres from "./Talleres.js";
 
 export default class Personas{
     constructor(tablaPersonas){
         this._tablaPersonas = tablaPersonas;
-        this._personas = [];
-        this._totalPersonas = 0;
-        this._initPersonas();
+
+        this.initPersonas();
     }
 
-    _initPersonas(){
+    initPersonas(){
+      this._tablaPersonas.innerHTML = "";
+      this._personas = [];
+      this._totalPersonas = 0;
         //localStorage.removeItem("personas");
         let Lpersonas = JSON.parse(localStorage.getItem("personas"));
         if(Lpersonas === null){
             return;
         }
-        //console.log(Lpersonas);
-        Lpersonas.forEach((e, index) =>{
+       
+        console.log(Lpersonas);
+        Lpersonas.forEach((e, index) =>{          
             e.personaFnacimiento = new Date(e.personaFnacimiento);
             this._tablaPersonass(new Persona(e));
+          
         });
 
         
     }
 
-    _tablaPersonass(persona, taller){
+    _tablaPersonass(persona){
+      let tallerId = localStorage.getItem("current");
+      if (persona.id === tallerId) {
         let row = this._tablaPersonas.insertRow(-1);
-       // let cellId = this._findKey(taller.tallerNombre);
         let cellNombre = row.insertCell(0);
         let cellEmail = row.insertCell(1);
         let cellFecha = row.insertCell(2);
@@ -38,18 +42,21 @@ export default class Personas{
         cellFecha.innerHTML = persona.getFAsString();
 
         this._addButtons(row, persona);
-
+      }
+       
+        console.log(persona.id, tallerId);
         let objPersona = {
             id : persona.id,
             personaNombre : persona.personaNombre,
             personaEmail : persona.personaEmail,
-            personaFnacimiento : persona.personaFnacimiento
+            personaFnacimiento : persona.personaFnacimiento,
+            
         };
 
         
 
         this._personas.push(objPersona);
-        console.log(this._personas);
+        //console.log(this._personas);
         localStorage.setItem("personas", JSON.stringify(this._personas));    
 
     }
@@ -77,11 +84,11 @@ export default class Personas{
           });
           return;
         }
+        let tallerId = localStorage.getItem("current");
+        persona.id = tallerId;
         this._tablaPersonass(persona);
         console.log(this._personas);
-        localStorage.setItem("personas", JSON.stringify(this._personas));
-
-        
+        localStorage.setItem("personas", JSON.stringify(this._personas));       
     
       }
 
@@ -119,7 +126,7 @@ export default class Personas{
         this._personas.splice(persona, 1);
         row.innerHTML = ""; 
         localStorage.setItem("personas", JSON.stringify(this._personas));
-        console.log(this._personas);     
+       // console.log(this._personas);     
         return;          
     }
 
@@ -186,7 +193,7 @@ export default class Personas{
       localStorage.setItem("personas", JSON.stringify(this._personas));
 
       this._cancelEdit(row, new Persona(newP));
-      console.log(row, persona, newP)
+      //console.log(row, persona, newP)
   }
 
     _cancelEdit(row, persona){

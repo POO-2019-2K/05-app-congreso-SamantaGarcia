@@ -4,7 +4,7 @@ export default class Taller{
         this._tallerFinicio = new Date(taller.tallerFinicio);
         this._tallerFtermino = new Date(taller.tallerFtermino);
         this._tallerDuracion = taller.tallerDuracion;
-        this._tallerLimit - taller.tallerLimit;
+        this._tallerLimite = taller.tallerLimite;
     }
 
     get tallerNombre(){
@@ -19,8 +19,8 @@ export default class Taller{
     get tallerDuracion(){
         return this._tallerDuracion;
     }
-    get tallerLimit(){
-        return this._tallerLimit;
+    get tallerLimite(){
+        return this._tallerLimite;
     }
 
     getFinicioAsString() {

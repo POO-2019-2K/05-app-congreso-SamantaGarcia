@@ -1,8 +1,8 @@
 import Taller from "./taller.js";
 
 export default class Talleres{
-    constructor(){
-        
+    constructor(agenda){
+        this._agenda = agenda;
         this._talleres = [];
 
         this._initTalleres();
@@ -61,13 +61,16 @@ export default class Talleres{
         let tallerFtermino = document.querySelector('#STfechat');
         tallerFtermino.innerHTML = taller.getFterminoAsString();
         let tallerDuracion = document.querySelector('#STduracion');
-        tallerDuracion.innerHTML = taller.tallerDuracion;        
+        tallerDuracion.innerHTML = taller.tallerDuracion;   
+        let tallerLimite = document.querySelector('#STLimite');
+        tallerLimite.innerHTML = taller.tallerLimite;       
 
         let objTaller = {
             tallerNombre : taller.tallerNombre,
             tallerFinicio : taller.tallerFinicio,
             tallerFtermino : taller.tallerFtermino,
-            tallerDuracion : taller.tallerDuracion
+            tallerDuracion : taller.tallerDuracion,
+            tallerLimite : taller.tallerLimite
           };
       
           this._talleres.push(objTaller); 
@@ -90,6 +93,9 @@ export default class Talleres{
       let position2 = this._findKey(taller.tallerNombre);
       this._talleres[position2] = objTaller;
 
+      localStorage.setItem("current", taller.tallerNombre);
+
+      console.log(localStorage.getItem("current"));
       let nombreTaller = document.querySelector('#STnombre');
         nombreTaller.innerHTML = taller.tallerNombre;
         let tallerFinicio = document.querySelector('#STfechai');
@@ -97,7 +103,9 @@ export default class Talleres{
         let tallerFtermino = document.querySelector('#STfechat');
         tallerFtermino.innerHTML = taller.getFterminoAsString();
         let tallerDuracion = document.querySelector('#STduracion');
-        tallerDuracion.innerHTML = taller.tallerDuracion;        
+        tallerDuracion.innerHTML = taller.tallerDuracion;
+        let tallerLimite = document.querySelector('#STLimite');
+        tallerLimite.innerHTML = taller.tallerLimite;         
 
         //Crear botones      
 
@@ -116,6 +124,7 @@ export default class Talleres{
 
       }); 
       nombreTaller.appendChild(btnE);  
+      this._agenda.initPersonas();
     }
 
 

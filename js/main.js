@@ -1,13 +1,13 @@
+import Persona from "./persona.js";
 import Taller from "./taller.js";
 import Talleres from "./Talleres.js";
-
-import Persona from "./persona.js";
 import Personas from "./Personas.js";
 
 class Main {
     constructor() {
-        let lista = new Talleres(document.querySelector("#seccionTaller1"), document.querySelector("#seccionTaller1"));
-
+        let agenda = new Personas(document.querySelector("#tablaPersonas"));
+        let lista = new Talleres(agenda);
+        
         document.querySelector("#btnCrear").addEventListener("click", () => {
             let form = document.querySelector("#form")
 
@@ -17,12 +17,14 @@ class Main {
             let tallerFtermino = document.querySelector("#tallerFtermino").value;
             let tallerDuracion = document.querySelector("#tallerDuracion").value;
             let sHour = tallerDuracion.split(":");
+            let tallerLimite = Number(document.querySelector("#tallerLimite").value);
 
             let objTaller = {
                 tallerNombre : tallerNombre,
                 tallerFinicio : tallerFinicio,
                 tallerFtermino : tallerFtermino,
-                tallerDuracion : new Date(sHour[3], sHour[4], sHour[5])
+                tallerDuracion : new Date(sHour[3], sHour[4], sHour[5]),
+                tallerLimite : tallerLimite
               };
 
             let taller = new Taller(objTaller);
@@ -33,8 +35,6 @@ class Main {
         });
 
 
-
-        let agenda = new Personas(document.querySelector("#tablaPersonas"));
         document.querySelector("#btnAgregar").addEventListener("click", () => {
             let form2 = document.querySelector("#form2");
 

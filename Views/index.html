@@ -47,6 +47,11 @@
                                     <tr>
                                         <td class="celda" style="width: 150px;"><p> <strong>Fecha de inicio:</strong></p> <p> <strong>Fecha de término:</strong></p></td>
                                         <td class="celda" ><p id="STfechai">Fecha de inicio</p><p id="STfechat">Fecha de término</p></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td class="celda"><p><strong>Límite de personas:</strong></p></td>
+                                      <td class="celda"><p id="STLimite">Límite de personas</p></td>
                                     </tr>
                                 </table>
                                 
@@ -75,7 +80,7 @@
                     <div class="col-4" id="seccionTaller2">
                         <center><div>
                             <label for="">Duración del taller</label><br>
-                            <input type="text border" style="height:90px; width:100px;" id="STduracion" readonly>
+                            <input id="STduracion" type="text border" style="height:90px; width:100px;" id="STduracion" readonly>
                         </div>
                         <br>
                                                       
@@ -83,7 +88,7 @@
                                     <input id="totalp" type="number" style="height:90px; width:100px;" readonly> <br> <br>
                             
                                     <label for="">Lugares disponibles</label><br>
-                            <input type="text border" style="height:90px; width:100px;" readonly>
+                            <input id="disponibles" type="text border" style="height:90px; width:100px;" readonly>
                                 
                        </center>
                     </div>
@@ -91,11 +96,6 @@
     
             </div>
         
-        
-
-
-
-    
 </body>
 <script src="../js/main.js" type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
@@ -164,7 +164,7 @@
                                                                 </div>
                                                                 <div class="col-6">
                                                                         <label for="exampleInputPassword1">Límite de personas</label>
-                                                                        <input type="number" class="form-control" id="tallerLimit" required>
+                                                                        <input type="number" class="form-control" id="tallerLimite" required>
                                                                         <small class="form-text text-muted">Cantidad de personas permitidas en el taller.</small>
                                                                         <div class="valid-feedback">Correcto!</div>
                                                                         <div class="invalid-feedback">Este campo es obligatorio</div>
