@@ -1,5 +1,5 @@
  # Ejercicio 5 El Congreso
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f45e983f683c43a68cac5beacfcba135)](https://www.codacy.com/app/SamantaGarcia/05-app-congreso-SamantaGarcia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/05-app-congreso-SamantaGarcia&amp;utm_campaign=Badge_Grade)
 ## Tiempo para realizar la actividad
 
 12 Horas
