@@ -1,5 +1,5 @@
-import Persona from "./persona.js";
-import Taller from "./taller.js";
+import Persona from "./Persona.js";
+import Taller from "./Taller.js";
 import Talleres from "./Talleres.js";
 import Personas from "./Personas.js";
 

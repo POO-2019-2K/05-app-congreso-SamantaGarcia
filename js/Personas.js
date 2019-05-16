@@ -1,9 +1,10 @@
-import Persona from "./persona.js";
+import Persona from "./Persona.js";
 
 export default class Personas{
     constructor(tablaPersonas){
         this._tablaPersonas = tablaPersonas;
         this.initPersonas();
+        this._nLugares = "";
         
     }
 
@@ -12,9 +13,8 @@ export default class Personas{
       this._personas = [];
       this._totalPersonas = 0;
       this._inscritos = 0;
-      let tallerL = localStorage.getItem("limite");
-      this._lugaresDisponibles = tallerL;
-      //console.log("tallerLimite", this._lugaresDisponibles);
+      this._lugaresDisponibles = localStorage.getItem("limite");
+      console.log(this._lugaresDisponibles);
         //localStorage.removeItem("personas");
         let Lpersonas = JSON.parse(localStorage.getItem("personas"));
         if(Lpersonas === null){
@@ -33,25 +33,35 @@ export default class Personas{
 
     _contarInscritos(tallerId){
       let encontrar = -1; //solo lo encuentra desde el 0 en adelante. Por eso se inicializa como -1
-        this._personas.forEach((e, index) => {
-          if (e.id === tallerId) {
-            encontrar = index;
-            console.log(e);   
-            this._inscritos ++;
-            this._lugaresDisponibles --;
+        this._personas.forEach((i, index) => {
+          if (i.id === tallerId) {
+            encontrar = index;  
+            this._inscritos++;   
+            this._nLugares = this._lugaresDisponibles - this._inscritos;   
+            console.log("inscritos",encontrar);     
             let totalp = document.querySelector("#totalp");
             totalp.innerHTML = this._inscritos;
             let disponibles = document.querySelector("#disponibles");
-            disponibles.innerHTML = this._lugaresDisponibles;
-            return;
+            disponibles.innerHTML = this._nLugares;
+
+            // if(this._nLugares <=0){
+            //   Swal.fire({
+            //     type: "error",
+            //     title: "Lugares Agotados",
+            //     text: "Este taller ha llegado al límite de participantes" 
+                
+            //   });
+            //   return;
+            // }
+            
           }
         });
       
       //console.log("inscritos primero:", this._inscritos);
       this._inscritos = "";
-      this._lugaresDisponibles = "";
       //console.log(totalp);
-      console.log(this._lugaresDisponibles);
+      //console.log(this._lugaresDisponibles);
+
     }
 
     _tablaPersonass(persona){
@@ -69,7 +79,9 @@ export default class Personas{
         cellEmail.innerHTML = persona.personaEmail;
         cellFecha.innerHTML = persona.getFAsString();
 
+        this._contarInscritos(tallerId);
         this._addButtons(row, persona);
+        
       }
       
      
@@ -83,12 +95,10 @@ export default class Personas{
             
         };
 
-        
-
         this._personas.push(objPersona);
         //console.log(this._personas);
         localStorage.setItem("personas", JSON.stringify(this._personas));    
-        this._contarInscritos(tallerId,persona)
+        
 
     }
 
@@ -115,12 +125,22 @@ export default class Personas{
           });
           return;
         }
-        let tallerId = localStorage.getItem("current");
 
+        if(this._nLugares <0){
+          Swal.fire({
+            type: "error",
+            title: "Lugares Agotados",
+            text: "Este taller ha llegado al límite de participantes" 
+            
+          });
+          return;
+        }
+        
+        let tallerId = localStorage.getItem("current");        
         persona.id = tallerId;
         this._tablaPersonass(persona);
         //console.log(this._personas);
-        localStorage.setItem("personas", JSON.stringify(this._personas));       
+        localStorage.setItem("personas", JSON.stringify(this._personas));
     
       }
 

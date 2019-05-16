@@ -1,4 +1,4 @@
-import Taller from "./taller.js";
+import Taller from "./Taller.js";
 
 export default class Talleres{
     constructor(agenda){
@@ -40,7 +40,7 @@ export default class Talleres{
     _initTalleres(){
       //localStorage.removeItem("talleres");
         let Ltalleres = JSON.parse(localStorage.getItem("talleres"));
-        console.log(Ltalleres);
+        //console.log(Ltalleres);
         if (Ltalleres === null) {
             return;                 
           }
@@ -107,7 +107,7 @@ export default class Talleres{
         tallerLimite.innerHTML = taller.tallerLimite;         
 
         //Crear botones      
-        console.log(localStorage.getItem("personas"));
+        //console.log(localStorage.getItem("personas"));
       let iconE = document.createElement("span");
         iconE.className = "fa fa-trash-alt";
         let btnE = document.createElement("button");        
@@ -121,12 +121,12 @@ export default class Talleres{
 
           let Lpersonas = JSON.parse(localStorage.getItem("personas"));
           
-          console.log(Lpersonas);
+         // console.log(Lpersonas);
           let foundAt = -1; //solo lo encuentra desde el 0 en adelante. Por eso se inicializa como -1
           
           Lpersonas.forEach((e, index) => {
-          console.log(e.id);
-          console.log(localStorage.getItem("current"));
+          // console.log(e.id);
+          // console.log(localStorage.getItem("current"));
           
           if (e.id === localStorage.getItem("current")) {
             
